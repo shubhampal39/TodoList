@@ -3,6 +3,8 @@ let btnAdd=$('#btnAdd')
 let btnReset=$('#btnReset')
 let inpNewTask=$('#inpNewTask')
 let btnCleanup=$('#btnCleanup')
+let btnSort=$('#btnSort')
+
 function addItem()
 {
 	 let listItem=$('<li>',{
@@ -21,6 +23,7 @@ function addItem()
 
      ulTasks.append(listItem)
      inpNewTask.val('')  //it will clear textbox
+     toggleInputButtons()
 }
 
 
@@ -30,7 +33,35 @@ inpNewTask.keypress((e)=>{
 
 function clearDone(){
 	$('#ulTasks .done').remove()
+	toggleInputButtons()
 }
+
+function toggleInputButtons(){
+
+		btnReset.prop('disabled',inpNewTask.val()=='')
+		btnAdd.prop('disabled',inpNewTask.val()=='')
+		btnSort.prop('disabled',ulTasks.children().length<1)
+		btnCleanup.prop('disabled',ulTasks.children().length<1)
+
+
+	
+}
+
+
+function sortTasks(){
+	$('#ulTasks .done').appendTo(ulTasks)
+}
+
+// inpNewTask.on('input',()=>{
+// 	// console.log(inpNewTask.val())
+// 	toggleInputButtons()
+
+// })
+
+//obove functioncall as follws
+
+inpNewTask.on('input',toggleInputButtons)
+
 
 btnAdd.click(()=>{
 	addItem()	
@@ -38,6 +69,10 @@ btnAdd.click(()=>{
 
 //btnAdd.click(addItem)
 
-btnReset.click(()=>inpNewTask.val(''))
+btnReset.click(()=>{
+inpNewTask.val('')
+toggleInputButtons()
+})
 
 btnCleanup.click(clearDone)
+btnSort.click(sortTasks)
