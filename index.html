@@ -9,12 +9,14 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
  <link rel="stylesheet" type="text/css" href="style.css">
 <script defer src="script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js"></script>
 <body>
    
    <div class="container">
    	  <h1 align="center">Todo List</h1>
    	  <div class="row">
-   	  	 <div class="col">
+   	  	<!-- input -->
+   	  	 <div class="col-md-7">
 	    	 	<div class="form-group">
 			    <label for="inpNewTask">TodoList</label>
 			    <input type="text" class="form-control" id="inpNewTask" aria-describedby=" newTaskhelp" placeholder="Enter the Name Of the Task">
@@ -22,15 +24,35 @@
 			  </div>
    	  	 </div>
    	  	
+	   	  <div class="col-md-5 row" >
+   	        <div class=" col-6 col-sm-3 col-md-6 p-1">
+   	        	<button class="btn btn-success col" id="btnAdd" >
+   	  	 		<i class="fas fa-plus-square"></i> Add
+   	  	 	</button>
+   	  	 </div>
+   	  
+           <div class=" col-6 col-sm-3 col-md-6 p-1">
+   	  	 	<button class="btn btn-danger col " id="btnReset">
+   	  	 		<i class="fas fa-backspace"></i> Reset
+   	  	 	</button>
+   	        </div>
+
+   	         <div class=" col-6 col-sm-3 col-md-6 p-1">
+   	        	<button class="btn btn-success col " id="btnAdd" >
+   	  	 		<i class="fas fa-sort-amount-down"></i> sort
+   	  	 	</button>
+   	          </div>  
+             <div class=" col-6 col-sm-3 col-md-6 p-1">
+   	  	 	<button class="btn btn-warning col " id="btnCleanup">
+   	  	 		<i class="fas fa-trash-alt"></i> CleanUp
+   	  	 	</button>
+   	        </div>
+   	  	 	
+     	  </div>
+
+
    	  </div>
 
-   	  <div class="row px-4">
-   	
-   	  	 	<button class="btn btn-success col m-2" id="btnAdd" >Add</button>
-   	
-
-   	  	 	<button class="btn btn-danger col m-2" id="btnClear">Clear</button>
-   	  </div>
 
 
 		 <ul class=" row list-group m-2" id="ulTasks">
